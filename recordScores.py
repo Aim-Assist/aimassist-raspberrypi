@@ -24,6 +24,7 @@ while True:
         session_started = session_data['data']['session_started']
         userId = session_data['data']['userid']
         sessionId = session_data['data']['_id']
+        distance = session_data['data']['distance']
         
     except:
         session_started = False
@@ -45,39 +46,39 @@ while True:
                     angle = 150
 
                 if GPIO.input(31) == GPIO.LOW:
-                    scores.append([angle, 10, 1])
+                    scores.append([angle, distance, 1])
                     print(scores)  # Print the scores array after adding a score
                     lcd.clear()  # Clear the display
                     # Write the score data to the display
-                    lcd.write_string("[{}, {}, {}]".format(angle, 10, 1))
+                    lcd.write_string("[{}, {}, {}]".format(angle, distance, 1))
                     # Wait for 5 seconds before adding another score
                     time.sleep(1)
                 elif GPIO.input(29) == GPIO.LOW:
-                    scores.append([angle, 10, 2])
+                    scores.append([angle, distance, 2])
                     print(scores)  # Print the scores array after adding a score
                     lcd.clear()  # Clear the display
-                    lcd.write_string("[{}, {}, {}]".format(angle, 10, 2))
+                    lcd.write_string("[{}, {}, {}]".format(angle, distance, 2))
                     # Wait for 1 second before adding another score
                     time.sleep(1)
                 elif GPIO.input(11) == GPIO.LOW:
-                    scores.append([angle, 10, 3])
+                    scores.append([angle, distance, 3])
                     print(scores)  # Print the scores array after adding a score
                     lcd.clear()  # Clear the display
-                    lcd.write_string("[{}, {}, {}]".format(angle, 10, 3))
+                    lcd.write_string("[{}, {}, {}]".format(angle, distance, 3))
                     # Wait for 1 second before adding another score
                     time.sleep(1)
                 elif GPIO.input(13) == GPIO.LOW:
-                    scores.append([angle, 10, 4])
+                    scores.append([angle, distance, 4])
                     print(scores)  # Print the scores array after adding a score
                     lcd.clear()  # Clear the display
-                    lcd.write_string("[{}, {}, {}]".format(angle, 10, 4))
+                    lcd.write_string("[{}, {}, {}]".format(angle, distance, 4))
                     # Wait for 1 second before adding another score
                     time.sleep(1)
                 elif GPIO.input(15) == GPIO.LOW:
-                    scores.append([angle, 10, 5])
+                    scores.append([angle, distance, 5])
                     print(scores)  # Print the scores array after adding a score
                     lcd.clear()  # Clear the display
-                    lcd.write_string("[{}, {}, {}]".format(angle, 10, 5))
+                    lcd.write_string("[{}, {}, {}]".format(angle, distance, 5))
                     # Wait for 1 second before adding another score
                     time.sleep(1)
 
@@ -101,6 +102,7 @@ while True:
                                 lcd.write_string("Scores Sent! Start session")
                     
                                 scores = []  # Clear the array if the POST request was successful
+                                
                                 loading = False
                             else: 
                                 print("Error: ", sessionResponse.status_code)
