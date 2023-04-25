@@ -25,6 +25,7 @@ while True:
         userId = session_data['data']['userid']
         sessionId = session_data['data']['_id']
         distance = session_data['data']['distance']
+        email = session_data['data']['email']
         
     except:
         session_started = False
@@ -86,7 +87,7 @@ while True:
                     lcd.clear()  # Clear the display
                     lcd.write_string("Sending Scores")
                     response = requests.post(
-                        'https://aimassist-server.onrender.com/api/v1/round/postRound', json={'scores': scores, 'userId': userId})
+                        'https://aimassist-server.onrender.com/api/v1/round/postRound', json={'scores': scores, 'userId': userId, 'email': email})
                     if response.status_code == 200:
                         sessionResponse = requests.post(
                             'https://aimassist-server.onrender.com/api/v1/session/endsession', json={'sessionId' : sessionId})
