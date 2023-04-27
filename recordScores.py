@@ -46,7 +46,7 @@ while True:
             if GPIO.input(31) == GPIO.LOW:
                 scores.append([angle, distance, 1])
                 response = requests.post(
-                        'https://aimassist-server.onrender.com/api/v1/session/updatescore?device=1', json={'score': 1})
+                        'https://aimassist-server.onrender.com/api/v1/session/updatescore?device=1', json={'score': [angle, distance, 1]})
                 if response.status_code == 200:
                     print(scores)  # Print the scores array after adding a score
                     lcd.clear()  # Clear the display
@@ -60,7 +60,7 @@ while True:
             elif GPIO.input(29) == GPIO.LOW:
                 scores.append([angle, distance, 2])
                 response = requests.post(
-                        'https://aimassist-server.onrender.com/api/v1/session/updatescore?device=1', json={'score': 2})
+                        'https://aimassist-server.onrender.com/api/v1/session/updatescore?device=1', json={'score': [angle, distance, 2]})
                 if response.status_code == 200:
                     print(scores)  # Print the scores array after adding a score
                     lcd.clear()  # Clear the display
@@ -73,7 +73,7 @@ while True:
             elif GPIO.input(11) == GPIO.LOW:
                 scores.append([angle, distance, 3])
                 response = requests.post(
-                        'https://aimassist-server.onrender.com/api/v1/session/updatescore?device=1', json={'score': 3})
+                        'https://aimassist-server.onrender.com/api/v1/session/updatescore?device=1', json={'score': [angle, distance, 3]})
                 if response.status_code == 200:
                     print(scores)  # Print the scores array after adding a score
                     lcd.clear()  # Clear the display
@@ -86,7 +86,7 @@ while True:
             elif GPIO.input(13) == GPIO.LOW:
                 scores.append([angle, distance, 4])
                 response = requests.post(
-                        'https://aimassist-server.onrender.com/api/v1/session/updatescore?device=1', json={'score': 4})
+                        'https://aimassist-server.onrender.com/api/v1/session/updatescore?device=1', json={'score': [angle, distance, 4]})
                 if response.status_code == 200:
                     print(scores)  # Print the scores array after adding a score
                     lcd.clear()  # Clear the display
@@ -99,7 +99,7 @@ while True:
             elif GPIO.input(15) == GPIO.LOW:
                 scores.append([angle, distance, 5])
                 response = requests.post(
-                        'https://aimassist-server.onrender.com/api/v1/session/updatescore?device=1', json={'score': 5})
+                        'https://aimassist-server.onrender.com/api/v1/session/updatescore?device=1', json={'score': [angle, distance, 5]})
                 if response.status_code == 200:
                     print(scores)  # Print the scores array after adding a score
                     lcd.clear()  # Clear the display
